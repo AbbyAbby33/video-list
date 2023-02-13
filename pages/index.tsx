@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.scss'
 
-export default function Home() {
+export default function Home({ videoList }: any) { // TODO: 型別
   return (
     <>
       <Head>
@@ -11,7 +11,16 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
+        {/* {videoList && videoList.length ? videoList[1].id : ''} */}
       </main>
     </>
   )
+}
+
+export async function getServerSideProps() {
+  const res = await fetch(`https://us-central1-lithe-window-713.cloudfunctions.net/frontendQuiz`)
+  const data = await res.json()
+  const videoList = data.status ? data.data : [];
+
+  return { props: { videoList } }
 }
