@@ -1,0 +1,57 @@
+.container {
+    background-color: grey;
+
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, 260px);
+    grid-gap: 10px;
+
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: pink;
+    padding: 20px -10px 0; // 抵銷
+}
+
+.video-item-box {
+    // width: 260px;
+    height: 200px;
+    vertical-align: top;
+    background-color: yellow;
+
+    padding: 10px;
+    margin-bottom: 20px;
+
+    .video-item {
+        border: 1px solid;
+        border-radius: 4px;
+        background-color: #fff;
+        // 影片縮圖
+        .video-pic {
+            height: 135px;
+            background-size: 103%;
+            // background-size: cover;
+            background-position: center;
+            transition: background-size 0.3s;
+            &:hover {
+                background-size: 110%;
+            }
+        }
+        // 標題
+        .title {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        justify-content: space-between;
+        max-width: 1200px;
+        width: 100%;
+    }
+}

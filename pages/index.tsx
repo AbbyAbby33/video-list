@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.scss'
+import VideoList from '@/components/VideoList'
 
 export default function Home({ videoList }: any) { // TODO: 型別
   return (
@@ -11,7 +12,7 @@ export default function Home({ videoList }: any) { // TODO: 型別
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        {/* {videoList && videoList.length ? videoList[1].id : ''} */}
+        <VideoList videoList={videoList}/>
       </main>
     </>
   )
