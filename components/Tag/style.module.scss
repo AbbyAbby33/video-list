@@ -1,0 +1,47 @@
+@import "@/styles/variables.module.scss";
+
+.tag {
+        padding: 4px 8px;
+        font-size: 12px;
+        color: #fff;
+        vertical-align: sub;
+}
+
+// tag
+// TODO: 待確認顏色定義：可能不同等級有不同顏色定義
+// 中文
+.captions-cht {
+    @extend .tag;
+    background-color: $primary;
+}
+// 日文
+.captions-ja {
+    @extend .tag;
+    background-color: $primary;
+}
+// 越南文
+.captions-vi {
+    @extend .tag;
+    background-color: $primary;
+}
+// 英文
+.captions-en {
+    @extend .tag;
+    background-color: $primary;
+}
+.level-0 {
+    @extend .tag;
+    background-color: $info;
+}
+.level-1 {
+    @extend .tag;
+    background-color: $info;
+}
+.level-2 {
+    @extend .tag;
+    background-color: $info;
+}
+.level-3 {
+    @extend .tag;
+    background-color: $info;
+}

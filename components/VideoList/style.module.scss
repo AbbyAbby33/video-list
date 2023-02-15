@@ -64,10 +64,7 @@
                 }
                 .button-bar {
                     span {
-                        padding: 4px 8px;
-                        font-size: 12px;
-                        color: #fff;
-                        vertical-align: sub;
+                        margin-left: 4px;
                     }
                 }
             }
@@ -75,37 +72,6 @@
     }
 }
 
-
-// tag
-// TODO: 待確認顏色定義：可能不同等級有不同顏色定義
-// 中文
-.captions-cht {
-    background-color: $primary;
-}
-// 日文
-.captions-ja {
-    background-color: $primary;
-}
-// 越南文
-.captions-vi {
-    background-color: $primary;
-}
-// 英文
-.captions-en {
-    background-color: $primary;
-}
-.level-0 {
-    background-color: $info;
-}
-.level-1 {
-    background-color: $info;
-}
-.level-2 {
-    background-color: $info;
-}
-.level-3 {
-    background-color: $info;
-}
 
 @media (min-width: 768px) {
     .container {
