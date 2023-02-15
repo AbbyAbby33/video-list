@@ -1,6 +1,6 @@
-.container {
-    background-color: grey;
+@import "@/styles/variables.module.scss";
 
+.container {
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(auto-fill, 260px);
@@ -9,23 +9,22 @@
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
-    background-color: pink;
+    // background-color: pink;
     padding: 20px -10px 0; // 抵銷
 }
 
 .video-item-box {
-    // width: 260px;
-    height: 200px;
     vertical-align: top;
-    background-color: yellow;
-
+    // background-color: yellow;
     padding: 10px;
     margin-bottom: 20px;
 
     .video-item {
-        border: 1px solid;
+        // border: 1px solid;
         border-radius: 4px;
         background-color: #fff;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+        overflow: hidden;
         // 影片縮圖
         .video-pic {
             height: 135px;
@@ -37,15 +36,75 @@
                 background-size: 110%;
             }
         }
-        // 標題
-        .title {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
+        // 影片資訊
+        .video-info {
+            padding: 8px;
+            // 標題
+            .title {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
+            // 觀看人數、程度標籤
+            .subinfo {
+                padding: 16px 0 4px;
+                display: flex;
+                justify-content: space-between;
+                .views-wrap {
+                    color: $basic-color-2;
+                    i {
+                        margin-right: 4px;
+                        font-size: 20px;
+                    }
+                    .views {
+                        vertical-align: super;
+                    }
+                }
+                .button-bar {
+                    span {
+                        padding: 4px 8px;
+                        font-size: 12px;
+                        color: #fff;
+                        vertical-align: sub;
+                    }
+                }
+            }
         }
     }
+}
+
+
+// tag
+// TODO: 待確認顏色定義：可能不同等級有不同顏色定義
+// 中文
+.captions-cht {
+    background-color: $primary;
+}
+// 日文
+.captions-ja {
+    background-color: $primary;
+}
+// 越南文
+.captions-vi {
+    background-color: $primary;
+}
+// 英文
+.captions-en {
+    background-color: $primary;
+}
+.level-0 {
+    background-color: $info;
+}
+.level-1 {
+    background-color: $info;
+}
+.level-2 {
+    background-color: $info;
+}
+.level-3 {
+    background-color: $info;
 }
 
 @media (min-width: 768px) {
