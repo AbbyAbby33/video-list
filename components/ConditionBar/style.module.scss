@@ -15,9 +15,10 @@
             margin-right: 20px;
         }
         .condition {
-            margin-right: 16px;
+            margin-right: 2px;
             padding: 4px 8px;
             cursor: pointer;
+            white-space: nowrap;
         }
         .condition-active {
             @extend .condition;
@@ -27,6 +28,23 @@
         }
         .sort-condition-bar {
             margin-right: 40px;
+            display: block;
+            margin-bottom: 12px;
+        }
+    }
+}
+
+@media (min-width: 770px) {
+    .container {
+        .condition-bar {
+            .condition {
+                margin-right: 16px;
+            }
+            .sort-condition-bar {
+                margin-right: 40px;
+                display: inline-block;
+                margin-bottom: 0;
+            }
         }
     }
 }
