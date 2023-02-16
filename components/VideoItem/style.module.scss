@@ -11,15 +11,28 @@
         box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
         overflow: hidden;
         // 影片縮圖
-        .video-pic {
-            height: 135px;
-            background-size: 103%;
-            // background-size: cover;
-            background-position: center;
-            transition: background-size 0.3s;
-            &:hover {
-                background-size: 110%;
-            }
+        .video-pic-wrap {
+            position: relative;
+            .video-pic {
+                height: 135px;
+                background-size: 103%;
+                // background-size: cover;
+                background-position: center;
+                transition: background-size 0.3s;
+                &:hover {
+                    background-size: 110%;
+                }
+            }         
+            .video-duration {
+                color: #fff;
+                background-color: $basic-color-5;
+                padding: 2px;
+                font-size: 12px;
+                line-height: 16px;
+                position: absolute;
+                bottom: 8px;
+                right: 8px;
+            }   
         }
         // 影片資訊
         .video-info {
