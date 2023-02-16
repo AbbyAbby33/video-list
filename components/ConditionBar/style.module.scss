@@ -1,0 +1,32 @@
+@import "@/styles/variables.module.scss";
+
+.container {
+    // background-color: pink;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto 20px;
+
+    .condition-bar {
+        border-bottom: 1px solid $basic-color-2;
+        padding: 12px 10px;
+        color: $basic-color-3;
+        .condition-title {
+            font-weight: bolder;
+            margin-right: 20px;
+        }
+        .condition {
+            margin-right: 16px;
+            padding: 4px 8px;
+            cursor: pointer;
+        }
+        .condition-active {
+            @extend .condition;
+            color: #fff;
+            background-color: $primary;
+            border-radius: 4px;
+        }
+        .sort-condition-bar {
+            margin-right: 40px;
+        }
+    }
+}

@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.scss'
 import VideoList from '@/components/VideoList'
+import ConditionBar from '@/components/ConditionBar'
 
 export default function Home({ videoList }: any) { // TODO: 型別
 	return (
@@ -13,6 +14,7 @@ export default function Home({ videoList }: any) { // TODO: 型別
 				<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet" />
 			</Head>
 			<main className={styles.main}>
+				<ConditionBar />
 				<VideoList videoList={videoList} />
 			</main>
 		</>
