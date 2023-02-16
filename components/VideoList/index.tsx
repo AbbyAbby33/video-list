@@ -19,7 +19,7 @@ export default function VideoList(props: VideoListInterface) {
                             </div>
                         )
                     })
-                    : ''
+                    : '沒有篩選結果' // TODO: 樣式
                 }
             </div>
         </>

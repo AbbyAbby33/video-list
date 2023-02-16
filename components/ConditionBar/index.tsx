@@ -1,16 +1,21 @@
+import ConditionBarInterface from '@/models/ConditionBarInterface'
 import { useState } from 'react'
 import styles from './style.module.scss'
 
-export default function ConditionBar() {
+export default function ConditionBar(props: ConditionBarInterface) {
+
+    const { conditionChange } = props;
 
     const [sortCondition, setSortCondition] = useState(0);
     const [lengthCondition, setLengthCondition] = useState(0);
 
     const onClickSortCondition = (id: number) => {
+        conditionChange('sort', id);
         setSortCondition(id);
     }
 
     const onClickLengthCondition = (id: number) => {
+        conditionChange('length', id);
         setLengthCondition(id);
     }
 

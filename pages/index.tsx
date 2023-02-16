@@ -3,8 +3,63 @@ import styles from '@/styles/Home.module.scss'
 import VideoList from '@/components/VideoList'
 import ConditionBar from '@/components/ConditionBar'
 import VideoListInterface from '@/models/VideoListInterface'
+import { SetStateAction, useEffect, useState } from 'react'
+import VideoItemInterface from '@/models/VideoItemInterface'
+import cloneDeep from 'lodash/cloneDeep'
 
 export default function Home({ videoList }: VideoListInterface) {
+
+	const [list, setList] = useState(videoList);
+	const [originList, setOriginList] = useState(videoList);
+	const [sortCondition, setSortCondition] = useState(0);
+	const [lengthCondition, setLengthCondition] = useState(0);
+
+	useEffect(() => {
+		setNewList(0, 0);
+	}, [videoList]);
+
+	/** 
+	 * 條件改變
+	 * @param flag 排序/時長
+	 * ---排序：0: 發布時間 1: 觀看次數 2: 收藏次數
+	 * ---時長：0: 不限 1: 4分鐘以下 2: 5-10分鐘 3: 超過10分鐘
+	 * @param id 代號
+	 *  */
+	const conditionChange = (flag: string, id: number) => {
+		console.log('flag', flag, 'id', id);
+		if (flag === 'sort') {
+			setSortCondition(id);
+			setNewList(id, lengthCondition);
+		} else if (flag === 'length') {
+			setLengthCondition(id);
+			setNewList(sortCondition, id);
+		}
+	}
+
+	function setNewList(sortId: number, lengthId: number) {
+		let newList: SetStateAction<VideoItemInterface[]> = [];
+
+		if (lengthId === 0) {
+			newList = cloneDeep(originList);
+		} else if (lengthId === 1) {
+			newList = originList.filter(v => v.duration <= 240);
+		} else if (lengthId === 2) {
+			newList = originList.filter(v => v.duration >= 300 && v.duration <= 600);
+		} else if (lengthId === 3) {
+			newList = originList.filter(v => v.duration >= 600);
+		}
+
+		if (sortId === 0) {
+			newList = newList.sort((a, b) => new Date(a.TedAt).getTime() - new Date(b.TedAt).getTime());
+		} else if (sortId === 1) {
+			newList = newList.sort((a, b) => b.views - a.views);
+		} else if (sortId === 2) {
+			newList = newList.sort((a, b) => b.collectCount - a.collectCount);
+		}
+
+		setList(newList);
+	}
+
 	return (
 		<>
 			<Head>
@@ -15,8 +70,8 @@ export default function Home({ videoList }: VideoListInterface) {
 				<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet" />
 			</Head>
 			<main className={styles.main}>
-				<ConditionBar />
-				<VideoList videoList={videoList} />
+				<ConditionBar conditionChange={(flag: string, id: number) => { conditionChange(flag, id) }} />
+				<VideoList videoList={list} />
 			</main>
 		</>
 	)
