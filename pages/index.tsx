@@ -2,8 +2,9 @@ import Head from 'next/head'
 import styles from '@/styles/Home.module.scss'
 import VideoList from '@/components/VideoList'
 import ConditionBar from '@/components/ConditionBar'
+import VideoListInterface from '@/models/VideoListInterface'
 
-export default function Home({ videoList }: any) { // TODO: 型別
+export default function Home({ videoList }: VideoListInterface) {
 	return (
 		<>
 			<Head>
