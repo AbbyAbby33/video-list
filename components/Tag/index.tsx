@@ -1,7 +1,7 @@
 import styles from './style.module.scss'
 
 type TagType = {
-    id: string,
+    id: string | number,
     flag: string,
 }
 

@@ -1,0 +1,58 @@
+@import "@/styles/variables.module.scss";
+
+.video-item-wrap {
+    // background-color: yellow;
+    padding: 10px;
+
+    .video-item {
+        // border: 1px solid;
+        border-radius: 4px;
+        background-color: #fff;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+        // 影片縮圖
+        .video-pic {
+            height: 135px;
+            background-size: 103%;
+            // background-size: cover;
+            background-position: center;
+            transition: background-size 0.3s;
+            &:hover {
+                background-size: 110%;
+            }
+        }
+        // 影片資訊
+        .video-info {
+            padding: 8px;
+            // 標題
+            .title {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
+            // 觀看人數、程度標籤
+            .subinfo {
+                padding: 16px 0 4px;
+                display: flex;
+                justify-content: space-between;
+                .views-wrap {
+                    color: $basic-color-2;
+                    i {
+                        margin-right: 4px;
+                        font-size: 20px;
+                    }
+                    .views {
+                        vertical-align: super;
+                    }
+                }
+                .button-bar {
+                    span {
+                        margin-left: 4px;
+                    }
+                }
+            }
+        }
+    }
+}
